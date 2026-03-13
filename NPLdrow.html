@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>NPL Paper Draw System</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+input{
+padding:8px;
+margin:6px;
+width:120px;
+}
+
+button{
+padding:10px 20px;
+margin-top:15px;
+cursor:pointer;
+}
+
+.container{
+    
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+width:900px;
+margin:40px auto;
+}
+
+.round{
+border-right:2px solid #aaa;
+padding:20px;
+}
+
+.round:last-child{
+border-right:none;
+}
+
+.match{
+margin:20px 0;
+}
+
+.team{
+padding:10px;
+margin:6px auto;
+width:170px;
+font-weight:bold;
+border-radius:4px;
+}
+
+.blue{background:#c7d6ea;border:2px solid #7aa0d2;}
+.green{background:#cfe3c9;border:2px solid #7bb16e;}
+.red{background:#f2c8c8;border:2px solid #d67a7a;}
+.purple{background:#d8cfe3;border:2px solid #9b83b5;}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🏏 NPL Paper Draw System</h1>
+
+<h3>Enter Draw Numbers</h3>
+
+Nvision Draw Number    : <input type="number" id="t1"><br>
+
+SalesPlay Draw Number  : <input type="number" id="t2"><br>
+
+Monyfi Draw Number     : <input type="number" id="t3"><br>
+
+MediaX Draw Number     : <input type="number" id="t4"><br>
+
+<button onclick="generateTeams()">Generate Teams</button>
+
+<div class="container">
+
+<div class="round">
+
+<h3>Round 1</h3>
+
+<div class="match">
+<b>Match 1</b>
+<div class="team blue" id="m1t1"></div>
+<div class="team green" id="m1t2"></div>
+</div>
+
+<div class="match">
+<b>Match 2</b>
+<div class="team red" id="m2t1"></div>
+<div class="team purple" id="m2t2"></div>
+</div>
+
+</div>
+
+<div class="round">
+
+<h3>Round 2</h3>
+
+<div class="match">
+<b>Match 3</b>
+<div class="team green" id="m3t1"></div>
+<div class="team red" id="m3t2"></div>
+</div>
+
+<div class="match">
+<b>Match 4</b>
+<div class="team blue" id="m4t1"></div>
+<div class="team purple" id="m4t2"></div>
+</div>
+
+</div>
+
+<div class="round">
+
+<h3>Round 3</h3>
+
+<div class="match">
+<b>Match 5</b>
+<div class="team blue" id="m5t1"></div>
+<div class="team red" id="m5t2"></div>
+</div>
+
+<div class="match">
+<b>Match 6</b>
+<div class="team purple" id="m6t1"></div>
+<div class="team green" id="m6t2"></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const teamList=["SalesPlay","Nvision","Monyfi","MediaX"];
+
+function generateTeams(){
+
+let teams=[];
+
+teams.push(teamList[document.getElementById("t1").value-1]);
+teams.push(teamList[document.getElementById("t2").value-1]);
+teams.push(teamList[document.getElementById("t3").value-1]);
+teams.push(teamList[document.getElementById("t4").value-1]);
+
+document.getElementById("m1t1").innerText=teams[0];
+document.getElementById("m1t2").innerText=teams[1];
+
+document.getElementById("m2t1").innerText=teams[2];
+document.getElementById("m2t2").innerText=teams[3];
+
+document.getElementById("m3t1").innerText=teams[1];
+document.getElementById("m3t2").innerText=teams[2];
+
+document.getElementById("m4t1").innerText=teams[0];
+document.getElementById("m4t2").innerText=teams[3];
+
+document.getElementById("m5t1").innerText=teams[0];
+document.getElementById("m5t2").innerText=teams[2];
+
+document.getElementById("m6t1").innerText=teams[3];
+document.getElementById("m6t2").innerText=teams[1];
+
+}
+
+</script>
+
+
+<button onclick="window.print()">Print Match Schedule</button>
+
+</body>
+</html>
+
+
